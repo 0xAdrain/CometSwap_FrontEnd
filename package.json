@@ -16,7 +16,7 @@
     "clean": "nx reset && rm -rf node_modules packages/*/node_modules apps/*/node_modules",
     "stellar:check": "node -e \"console.log('🌟 Stellar UI System:', require('./packages/uikit/src/stellar').checkStellarHealth())\"",
     "web": "nx run web:dev",
-    "web:build": "nx run web:build",
+    "web:build": "node build.js",
     "uikit:dev": "nx run uikit:dev",
     "uikit:build": "nx run uikit:build"
   },

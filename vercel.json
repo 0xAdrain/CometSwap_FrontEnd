@@ -1,7 +1,7 @@
 {
   "framework": null,
-  "buildCommand": "npx nx run web:build",
-  "devCommand": "npx nx run web:dev",
+  "buildCommand": "npm run web:build",
+  "devCommand": "npm run web",
   "installCommand": "npm install",
   "outputDirectory": "apps/web/.next"
 }

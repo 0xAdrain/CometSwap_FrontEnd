@@ -28,27 +28,27 @@ comet-swap-nx/
 
 Install dependencies:
 ```bash
-bun install
+npm install
 ```
 
 Run development server:
 ```bash
-bun web dev
+npm run web
 ```
 
 Build for production:
 ```bash
-bun web build
+npm run web:build
 ```
 
-## Development
+## Tech Stack
 
-Built with:
-- Bun 1.2.21+
-- Next.js 14
-- TypeScript
-- Styled Components
-- Viem & Wagmi v2
+- Next.js 14.2
+- React 18.3
+- TypeScript 5.3
+- Styled Components 6.1
+- Wagmi 2.12 & Viem 2.30
+- Nx 19
 
 ## License
 

@@ -7,6 +7,7 @@ import { CurrencyInputPanel } from './CurrencyInputPanel'
 import { SwapButton } from './SwapButton'  
 import { SwapSettings } from './SwapSettings'
 import { TokenSelectModal } from '../TokenSelectModal'
+import { ApprovalModal } from './ApprovalModal'
 import { getChainTokens, ChainId, getContractAddress, ContractType } from '@comet-swap/core-config'
 import type { TokenInfo } from '@comet-swap/core-config'
 import { useSmartRouterCallback } from '@comet-swap/smart-router'
@@ -201,6 +202,9 @@ export const SwapContainer: React.FC = () => {
   
   // Token选择状态
   const [showTokenSelect, setShowTokenSelect] = useState<'input' | 'output' | null>(null)
+  
+  // 授权弹窗状态
+  const [showApprovalModal, setShowApprovalModal] = useState(false)
 
   // 🔄 获取当前链ID，支持链切换
   const wagmiChainId = useChainId()
@@ -342,88 +346,56 @@ export const SwapContainer: React.FC = () => {
     setShowTokenSelect('output')
   }, [])
 
-  // 🚀 执行Swap（参考老前端流程）
+  // 🚀 点击Swap按钮 - 总是先显示授权检查弹窗（参考老前端流程）
   const handleSwap = useCallback(async () => {
-    if (!bestRoute || !executeSwap || !inputToken) {
-      console.error('❌ No route or executeSwap function available')
+    if (!bestRoute || !inputToken) {
+      console.error('❌ No route available')
+      return
+    }
+
+    console.log('🔐 Opening approval check modal...')
+    // 🔑 关键：总是先显示授权检查弹窗，无论是否需要授权
+    setShowApprovalModal(true)
+  }, [bestRoute, inputToken])
+
+  // 📝 授权完成回调 - 执行实际的Swap
+  const handleApprovalComplete = useCallback(async () => {
+    console.log('✅ Approval check completed, executing swap...')
+    setShowApprovalModal(false)
+    
+    if (!executeSwap) {
+      console.error('❌ No executeSwap function available')
       return
     }
 
     try {
-      console.log('🚀 Starting swap flow:', {
-        needsApproval,
-        inputToken: inputToken.symbol,
-        outputToken: outputToken?.symbol,
-        inputAmount
-      })
-
-      // 🎯 第一阶段：代币授权（如果需要）
-      if (needsApproval) {
-        console.log('💰 Step 1: Approving token...')
-        setIsApproving(true)
-        
-        try {
-          const approvalAmount = parseUnits(inputAmount, inputToken.decimals)
-          
-          approveToken({
-            address: inputToken.address as Address,
-            abi: ERC20_ABI,
-            functionName: 'approve',
-            args: [smartRouterAddress as Address, approvalAmount],
-          })
-          
-          console.log('⏳ Waiting for approval confirmation...')
-          
-          // 等待授权完成
-          await new Promise<void>((resolve, reject) => {
-            const checkInterval = setInterval(() => {
-              if (isApprovalSuccess) {
-                clearInterval(checkInterval)
-                console.log('✅ Approval confirmed!')
-                resolve()
-              }
-            }, 1000)
-            
-            // 超时处理
-            setTimeout(() => {
-              clearInterval(checkInterval)
-              if (!isApprovalSuccess) {
-                reject(new Error('Approval timeout'))
-              }
-            }, 60000) // 60秒超时
-          })
-          
-          // 重新检查allowance
-          await refetchAllowance()
-          
-        } catch (error) {
-          console.error('❌ Approval failed:', error)
-          throw error
-        } finally {
-          setIsApproving(false)
-        }
-      }
-
-      // 🎯 第二阶段：执行Swap交易
-      console.log('🔥 Step 2: Executing swap...')
       setIsSwapping(true)
-      
       const txHash = await executeSwap(slippage)
       
       console.log('✅ Swap successful! TxHash:', txHash)
+      alert(`Swap successful! Transaction: ${txHash.slice(0, 10)}...`)
       
       // 清空输入
       setInputAmount('')
       setOutputAmount('')
       
-    } catch (error) {
+      // 刷新allowance
+      await refetchAllowance()
+      
+    } catch (error: any) {
       console.error('❌ Swap failed:', error)
-      alert(`Swap failed: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      
+      // 友好的错误提示
+      let errorMessage = 'Unknown error'
+      if (error.message) {
+        errorMessage = error.message
+      }
+      
+      alert(`Swap failed: ${errorMessage}`)
     } finally {
-      setIsApproving(false)
       setIsSwapping(false)
     }
-  }, [bestRoute, executeSwap, slippage, needsApproval, inputToken, outputToken, inputAmount, smartRouterAddress, approveToken, isApprovalSuccess, refetchAllowance])
+  }, [executeSwap, slippage, refetchAllowance])
 
   return (
     <Container>
@@ -530,6 +502,24 @@ export const SwapContainer: React.FC = () => {
           tokens={tokens}
           selectedToken={showTokenSelect === 'input' ? inputToken : outputToken}
           title={showTokenSelect === 'input' ? 'Select Input Token' : 'Select Output Token'}
+        />
+      )}
+
+      {/* 🔐 Approval Check Modal - 总是先检查授权 */}
+      {inputToken && smartRouterAddress && (
+        <ApprovalModal
+          isOpen={showApprovalModal}
+          onClose={() => setShowApprovalModal(false)}
+          onApprovalComplete={handleApprovalComplete}
+          token={{
+            symbol: inputToken.symbol,
+            address: inputToken.address,
+            decimals: inputToken.decimals
+          }}
+          spender={smartRouterAddress}
+          amount={inputAmount}
+          currentAllowance={allowance || BigInt(0)}
+          needsApproval={needsApproval}
         />
       )}
     </Container>

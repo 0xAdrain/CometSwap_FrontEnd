@@ -666,8 +666,9 @@ export function useSmartRouterCallback(
         midPrice = await calculateMultiHopMidPrice(route)
       }
       
-      if (midPrice === 0) {
-        console.warn('⚠️ 无法计算中间价，使用默认价格影响')
+      // 检查中间价是否有效（大于0.000001）
+      if (midPrice < 0.000001) {
+        console.warn('⚠️ 中间价过小或无效，使用默认价格影响')
         return 0.1
       }
       
@@ -678,7 +679,13 @@ export function useSmartRouterCallback(
       console.log(`  - 中间价格: ${midPrice.toFixed(6)}`)
       console.log(`  - 价格影响: ${priceImpact.toFixed(3)}%`)
       
-      return Math.min(priceImpact, 100) // 限制最大价格影响为 100%
+      // 限制价格影响在合理范围内 (0.01% - 100%)
+      if (priceImpact > 100 || priceImpact < 0.01) {
+        console.warn(`⚠️ 价格影响异常 (${priceImpact.toFixed(3)}%), 使用默认值`)
+        return 0.5
+      }
+      
+      return priceImpact
       
     } catch (error) {
       console.warn('⚠️ 价格影响计算失败:', error)

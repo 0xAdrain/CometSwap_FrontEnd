@@ -7,7 +7,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { wagmiConfig } from '../config/wagmi'
 import { CometThemeProvider, useCometTheme } from '../providers/ThemeProvider'
 import GlobalStyle from '../style/Global'
-import '../../../../packages/uikit/dist/style.css'
 
 // UIKit适配器 - 让UIKitProvider使用我们的主题
 const UIKitThemeAdapter: React.FC<{ children: React.ReactNode }> = ({ children }) => {

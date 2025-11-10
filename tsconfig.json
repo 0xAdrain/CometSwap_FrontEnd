@@ -1,0 +1,80 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./packages/core-config"
+    },
+    {
+      "path": "./packages/smart-router"
+    },
+    {
+      "path": "./packages/hooks"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/uikit"
+    },
+    {
+      "path": "./packages/localization"
+    }
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@comet-swap/core-config": ["packages/core-config/src/index.ts"],
+      "@comet-swap/core-config/*": ["packages/core-config/src/*"],
+      "@comet-swap/smart-router": ["packages/smart-router/src/index.ts"],
+      "@comet-swap/hooks": ["packages/hooks/src/index.ts"],
+      "@comet-swap/utils": ["packages/utils/src/index.ts"],
+      "@cometswap/uikit": ["packages/uikit/src/index.ts"],
+      "@comet-swap/localization": ["packages/localization/src/index.ts"]
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

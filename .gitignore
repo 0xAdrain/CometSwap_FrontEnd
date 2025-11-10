@@ -1,0 +1,177 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+coverage
+*.lcov
+.nyc_output
+junit.xml
+
+# Next.js
+.next/
+out/
+build
+dist/
+.vercel
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+.AppleDouble
+.LSOverride
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+# Local env files
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Turbo
+.turbo
+
+# Vercel
+.vercel
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Nx
+.nx/cache
+.nx/workspace-data
+tmp/
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env.test
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
+
+# Temporary folders
+tmp/
+temp/
+
+# Build outputs
+dist/
+build/
+*.js.map
+
+# Nx Cloud
+.nx/cache
+
+# TypeScript incremental compilation
+*.tsbuildinfo
+
+# SWC
+.swc/
+
+# Package manager lock files (keep only one)
+# Uncomment the one you want to keep
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Local development
+.env.defaults.local
+
+# Generated files
+apps/mobile/ios/Pods/
+apps/mobile/ios/build/
+apps/mobile/android/.gradle/
+apps/mobile/android/app/build/
+apps/mobile/android/build/
+
+# Metro bundler cache
+.metro-health-check*
+
+# Blockchain artifacts (if any)
+artifacts/
+cache/
+typechain/
+typechain-types/
+
+# Smart contract testing
+contracts/test/
+
+# Deployment receipts
+deployments/*/solcInputs/

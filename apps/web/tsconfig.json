@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@cometswap/uikit": ["../../packages/uikit/src/index.ts"],
+      "@cometswap/uikit/*": ["../../packages/uikit/src/*"],
+      "@comet-swap/localization": ["../../packages/localization/src/index.ts"],
+      "@comet-swap/localization/*": ["../../packages/localization/src/*"],
+      "@comet-swap/smart-router": ["../../packages/smart-router/src/index.ts"],
+      "@comet-swap/smart-router/*": ["../../packages/smart-router/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

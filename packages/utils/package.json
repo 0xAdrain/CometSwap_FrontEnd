@@ -1,0 +1,23 @@
+{
+  "name": "@comet-swap/utils",
+  "version": "8.0.1",
+  "scripts": {
+    "test": "vitest --run"
+  },
+  "private": true,
+  "peerDependencies": {
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
+    "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.168",
+    "bignumber.js": "^9.0.0",
+    "jotai": "^2.6.0",
+    "styled-components": "6.0.7",
+    "viem": "^2.30.5"
+  },
+  "dependencies": {
+    "url-parse": "^1.5.10"
+  }
+}

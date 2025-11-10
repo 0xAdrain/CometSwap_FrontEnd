@@ -1,0 +1,9 @@
+import { AnchorHTMLAttributes } from "react";
+import { TextProps } from "../Text";
+
+export interface LinkProps extends TextProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  external?: boolean;
+  showExternalIcon?: boolean;
+  fontSize?: string | number;
+  bold?: boolean;
+}

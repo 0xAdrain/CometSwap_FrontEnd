@@ -1,0 +1,70 @@
+{
+  "name": "@cometswap/uikit",
+  "version": "0.67.3",
+  "description": "Stellar UI - A high-performance, cross-platform, and PancakeSwap-compatible UI toolkit",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "repository": "https://github.com/cometswap/comet-frontend/tree/develop/packages/uikit",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc --skipLibCheck",
+    "build:nocheck": "tsc --noEmit false --skipLibCheck --noCheck",
+    "build:vite": "vite build",
+    "dev": "tsc --watch --skipLibCheck",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'Linting skipped for now'",
+    "test:stellar": "node test-stellar.js"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@comet-swap/localization": "file:../localization",
+    "dayjs": "^1.11.19",
+    "i18next": "^25.6.1",
+    "i18next-resources-to-backend": "^1.2.1",
+    "lodash": "^4.17.21",
+    "react-device-detect": "^2.2.3",
+    "react-i18next": "^16.2.4",
+    "react-native-reanimated": "3.16.7",
+    "react-native-web": "^0.21.2",
+    "react-popper": "^2.3.0",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "@babel/parser": "^7.23.0",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@babel/traverse": "^7.23.0",
+    "@babel/types": "^7.23.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

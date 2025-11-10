@@ -1,0 +1,74 @@
+{
+  "common": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "close": "Close",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "nav": {
+    "trade": "Trade",
+    "swap": "Swap",
+    "liquidity": "Liquidity",
+    "pools": "Pools",
+    "farms": "Farms",
+    "bridge": "Bridge",
+    "analytics": "Analytics"
+  },
+  "swap": {
+    "title": "Swap",
+    "from": "From",
+    "to": "To",
+    "balance": "Balance",
+    "max": "MAX",
+    "swapButton": "Swap",
+    "connectWallet": "Connect Wallet",
+    "insufficientBalance": "Insufficient {{symbol}} balance",
+    "enterAmount": "Enter an amount",
+    "selectToken": "Select a token",
+    "priceImpact": "Price Impact",
+    "minimumReceived": "Minimum received",
+    "slippageTolerance": "Slippage Tolerance",
+    "transactionDeadline": "Transaction Deadline",
+    "swapAnyway": "Swap Anyway",
+    "priceImpactTooHigh": "Price impact too high"
+  },
+  "wallet": {
+    "connectWallet": "Connect Wallet",
+    "wrongNetwork": "Wrong Network",
+    "switchNetwork": "Switch to {{network}}",
+    "accountDetails": "Account Details",
+    "viewOnExplorer": "View on Explorer",
+    "copyAddress": "Copy Address",
+    "recentTransactions": "Recent Transactions",
+    "clearAll": "Clear All",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "failed": "Failed"
+  },
+  "liquidity": {
+    "title": "Liquidity",
+    "addLiquidity": "Add Liquidity",
+    "removeLiquidity": "Remove Liquidity",
+    "yourLiquidity": "Your Liquidity",
+    "poolShare": "Your Pool Share",
+    "poolTokens": "Your Pool Tokens",
+    "create": "Create a pair"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "slippageTolerance": "Slippage Tolerance",
+    "transactionDeadline": "Transaction Deadline",
+    "expertMode": "Expert Mode",
+    "audioMode": "Audio Mode",
+    "theme": "Theme"
+  }
+}

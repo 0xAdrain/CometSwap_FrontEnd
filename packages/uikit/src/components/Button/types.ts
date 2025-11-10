@@ -1,0 +1,48 @@
+import { ElementType, ReactNode, HTMLAttributes } from "react";
+import type { AllSystemProps, LayoutProps, ResponsiveValue, SpaceProps } from "../../styled-system";
+import type { PolymorphicComponentProps } from "../../util/polymorphic";
+
+export const scales = {
+  MD: "md",
+  SM: "sm",
+  XS: "xs",
+} as const;
+
+export const variants = {
+  PRIMARY: "primary",
+  SECONDARY: "secondary",
+  TERTIARY: "tertiary",
+  TEXT: "text",
+  DANGER: "danger",
+  SUBTLE: "subtle",
+  SUCCESS: "success",
+  LIGHT: "light",
+  BUBBLEGUM: "bubblegum",
+} as const;
+
+export type Scale = (typeof scales)[keyof typeof scales];
+export type Variant = (typeof variants)[keyof typeof variants];
+
+export interface BaseButtonProps extends AllSystemProps, LayoutProps, SpaceProps {
+  as?: "a" | "button" | ElementType;
+  external?: boolean;
+  isLoading?: boolean;
+  scale?: ResponsiveValue<Scale>;
+  variant?: Variant;
+  disabled?: boolean;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+  decorator?: {
+    backgroundColor?: string;
+    color?: string;
+    text: string;
+    direction?: "left" | "right";
+  };
+  href?: string;
+  width?: string | number;
+  mt?: string | number;
+  mb?: string | number;
+}
+
+export type ButtonProps<P extends ElementType = "button"> = PolymorphicComponentProps<P, BaseButtonProps>;
+

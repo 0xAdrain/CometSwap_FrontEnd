@@ -1,0 +1,76 @@
+{
+  "name": "@comet-swap/localization",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internationalization package for CometSwap",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "echo 'No dev script needed for localization package'",
+    "build": "echo 'No build needed for source package'",
+    "lint": "biome check src/",
+    "lint:fix": "biome check --write src/",
+    "typecheck": "tsc --noEmit",
+    "extract": "i18next-parser -c i18n-parser.config.js"
+  },
+  "dependencies": {
+    "i18next": "^22.4.15",
+    "react-i18next": "^12.2.2",
+    "i18next-resources-to-backend": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "i18next-parser": "^9.0.2",
+    "react": "^18.3.1",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+---
+description:
+注释永远用英文
+globs:
+before coding，grep read the full reference code.
+alwaysApply: true
+---

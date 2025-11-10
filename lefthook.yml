@@ -1,0 +1,13 @@
+# Lefthook configuration for CometSwap
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "*.{js,ts,tsx}"
+      run: npx eslint {staged_files}
+    typecheck:
+      run: npx nx run-many --target=typecheck --all
+      stage_fixed: true
+
+
+

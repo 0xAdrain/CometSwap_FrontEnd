@@ -1,64 +1,58 @@
 # CometSwap
 
-> Advanced DeFi Trading Platform with Intelligent Routing
+A decentralized exchange platform with intelligent routing and multi-chain support.
 
-## 🌟 Features
+## Features
 
-- **Smart Router**: Advanced multi-protocol routing algorithm
-- **Route Visualization**: Beautiful Thena-style route diagrams  
-- **Multi-Chain Support**: X Layer Testnet ready
-- **Optimized Performance**: Nx monorepo architecture
-- **Modern UI**: Best practices from Uniswap + PancakeSwap
+- Multi-protocol routing algorithm for optimal trade execution
+- Interactive route visualization
+- Support for X Layer Testnet and Mainnet
+- Modular architecture built with Nx monorepo
+- Comprehensive internationalization support
 
-## 🏗️ Architecture
+## Project Structure
 
 ```
 comet-swap-nx/
 ├── apps/
-│   └── web/               # Main trading interface
+│   └── web/               # Trading interface
 ├── packages/
-│   ├── smart-router/       # Core routing algorithm
-│   ├── ui/                # UI components library
-│   ├── localization/      # Internationalization (i18n)
-│   ├── contracts/         # Blockchain interactions
-│   ├── utilities/         # Shared utilities
-│   └── config/           # Configuration management
+│   ├── smart-router/      # Routing engine
+│   ├── uikit/             # Component library
+│   ├── localization/      # i18n support
+│   ├── core-config/       # Chain and token configuration
+│   └── hooks/             # Shared React hooks
 ```
 
-## 🚀 Quick Start
+## Getting Started
 
+Install dependencies:
 ```bash
-# Install dependencies
 bun install
-
-# Start development
-bun g:dev
-
-# Build all packages
-bun g:build
-
-# Run tests
-bun g:test
 ```
 
-## 📦 Package Scripts
+Run development server:
+```bash
+bun web dev
+```
 
-- `bun smart-router <command>` - Smart router package
-- `bun ui <command>` - UI components package
-- `bun localization <command>` - Localization package
-- `bun web <command>` - Main app
+Build for production:
+```bash
+bun web build
+```
 
-## 🛠️ Development
+## Development
 
-- **Package Manager**: Bun (>=1.2.21)
-- **Monorepo**: Nx
-- **Code Quality**: Biome + TypeScript
-- **Styling**: Styled Components
-- **Blockchain**: Viem + Wagmi
+Built with:
+- Bun 1.2.21+
+- Next.js 14
+- TypeScript
+- Styled Components
+- Viem & Wagmi v2
 
-## 📄 License
+## License
 
-MIT License
+MIT
 
 
 

@@ -45,14 +45,16 @@ const xLayerTestnet = defineChain({
   rpcUrls: {
     default: {
       http: [
+        'https://testrpc.xlayer.tech/terigon',
         'https://testrpc.xlayer.tech',
-        'https://xlayertestrpc.okx.com', // 备用RPC
+        'https://xlayertestrpc.okx.com',
       ],
     },
     public: {
       http: [
+        'https://testrpc.xlayer.tech/terigon',
         'https://testrpc.xlayer.tech',
-        'https://xlayertestrpc.okx.com', // 备用RPC
+        'https://xlayertestrpc.okx.com',
       ],
     },
   },

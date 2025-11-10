@@ -49,6 +49,7 @@ export const XLAYER_TESTNET: ChainInfo = {
   },
   rpcUrls: {
     http: [
+      'https://testrpc.xlayer.tech/terigon',
       'https://testrpc.xlayer.tech',
       'https://xlayertestrpc.okx.com',
     ],

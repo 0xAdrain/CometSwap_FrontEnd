@@ -1,6 +1,4 @@
 {
-  "buildCommand": "npx nx run web:build",
-  "outputDirectory": "apps/web/.next",
-  "framework": "nextjs",
+  "buildCommand": "cd ../.. && npx nx run web:build",
   "installCommand": "npm install"
 }

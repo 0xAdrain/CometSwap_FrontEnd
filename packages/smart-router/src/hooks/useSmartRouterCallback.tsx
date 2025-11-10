@@ -471,22 +471,29 @@ export function useSmartRouterCallback(
       } else if (route.type === RouteType.MIXED) {
         // 混合路径 Gas 估算 - 使用 multicall
         try {
-          const { encodeMixedRouteSwap, encodeMulticall } = await import('../utils/mixedRouteExecution')
+          const { encodeMixedRouteSwap } = await import('../utils/mixedRouteExecution')
           const calldatas = encodeMixedRouteSwap(route as any, parsedAmountIn, minAmountOut, account as Address, SMART_ROUTER_ABI)
-          const multicallData = encodeMulticall(calldatas, SMART_ROUTER_ABI)
           
+          // 🔑 关键修复：multicall的args应该是bytes[]数组，不是已编码的bytes
           const gasEstimate = await publicClient.estimateContractGas({
             account: account as Address,
             address: smartRouterAddress as Address,
             abi: SMART_ROUTER_ABI,
             functionName: 'multicall',
-            args: [multicallData]
+            args: [calldatas as any] // 直接传calldatas数组
           })
           console.log(`   ✅ Mixed Gas estimate: ${gasEstimate.toString()}`)
           return gasEstimate
-        } catch (error) {
-          console.warn('   ⚠️ Mixed route gas estimation failed:', error)
-          return route.gasEstimate // 返回默认估算
+        } catch (error: any) {
+          // 检测STF (Swap Transfer Failed)错误
+          if (error?.message?.includes('STF') || error?.data?.includes('STF')) {
+            console.warn('   ⚠️ Token approval needed for gas estimation')
+            console.warn('   💡 Using default gas estimate. Actual gas will be estimated after approval.')
+          } else {
+            console.warn('   ⚠️ Mixed route gas estimation failed:', error)
+          }
+          // 返回一个保守的默认gas估算
+          return BigInt(300000) // 30万gas作为安全默认值
         }
       }
       
@@ -1108,8 +1115,21 @@ export function useSmartRouterCallback(
       console.log(`✅ Swap transaction sent: ${txHash}`)
       return txHash
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('❌ Swap execution failed:', error)
+      
+      // 检测STF (Swap Transfer Failed)错误并提供友好提示
+      if (error?.message?.includes('STF') || error?.data?.includes('STF') || error?.message?.includes('execution reverted')) {
+        const friendlyError = new Error(
+          'Token transfer failed. Please ensure:\n' +
+          '1. You have approved enough tokens for the Smart Router\n' +
+          '2. The trading pair has sufficient liquidity\n' +
+          '3. Try increasing slippage tolerance'
+        )
+        friendlyError.name = 'SwapTransferError'
+        throw friendlyError
+      }
+      
       throw error
     }
   }, [bestRoute, walletClient, account, inputToken, outputToken, inputAmount, smartRouterAddress])

@@ -15,6 +15,7 @@ export * from './LangSelector'
 export * from './NavBar'
 // Card components
 export * from './Card'
+export * from './InfoCard'
 
 // Link components
 export * from './Link'
@@ -33,6 +34,9 @@ export * from './Footer'
 
 // Message components
 export * from './Message'
+
+// Alert components
+export * from './Alert'
 
 // DropdownMenu components
 export * from './DropdownMenu'

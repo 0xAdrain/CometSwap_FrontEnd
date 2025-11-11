@@ -2,8 +2,8 @@
   "name": "@comet-swap/core-config",
   "version": "0.1.0",
   "description": "Core configuration for chains, contracts, and tokens",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
@@ -21,24 +21,24 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./chains": {
-      "types": "./dist/chains/index.d.ts", 
-      "default": "./dist/chains/index.js"
+      "types": "./src/chains/index.ts", 
+      "default": "./src/chains/index.ts"
     },
     "./contracts": {
-      "types": "./dist/contracts/index.d.ts",
-      "default": "./dist/contracts/index.js"
+      "types": "./src/contracts/index.ts",
+      "default": "./src/contracts/index.ts"
     },
     "./tokens": {
-      "types": "./dist/tokens/index.d.ts",
-      "default": "./dist/tokens/index.js"
+      "types": "./src/tokens/index.ts",
+      "default": "./src/tokens/index.ts"
     },
     "./logos": {
-      "types": "./dist/logos/index.d.ts",
-      "default": "./dist/logos/index.js"
+      "types": "./src/logos/index.ts",
+      "default": "./src/logos/index.ts"
     }
   },
   "publishConfig": {

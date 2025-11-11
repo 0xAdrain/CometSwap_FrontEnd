@@ -7,6 +7,7 @@ const nextConfig = {
     '@cometswap/uikit',
     '@comet-swap/core-config',
     '@comet-swap/hooks',
+    '@comet-swap/utils',
     '@comet-swap/localization'
   ],
   experimental: {

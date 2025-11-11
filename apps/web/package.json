@@ -17,6 +17,7 @@
     "@comet-swap/hooks": "file:../../packages/hooks",
     "@comet-swap/localization": "file:../../packages/localization",
     "@comet-swap/smart-router": "file:../../packages/smart-router",
+    "@comet-swap/utils": "file:../../packages/utils",
     "@cometswap/uikit": "file:../../packages/uikit",
     "@tanstack/react-query": "^5.56.0",
     "dayjs": "^1.11.10",
@@ -31,6 +32,7 @@
     "react-dom": "^18.3.1",
     "react-native-web": "^0.21.2",
     "styled-components": "^6.1.11",
+    "tamagui": "^1.136.6",
     "viem": "^2.30.5",
     "wagmi": "^2.12.0"
   },

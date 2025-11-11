@@ -4,8 +4,7 @@
   "private": true,
   "description": "CometSwap Main Trading Interface",
   "scripts": {
-    "build": "cd ../.. && npx nx run web:build",
-    "web:build": "next build",
+    "build": "next build",
     "dev": "next dev",
     "start": "next start",
     "typecheck": "tsc --noEmit",

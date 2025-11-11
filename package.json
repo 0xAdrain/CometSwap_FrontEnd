@@ -8,17 +8,17 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "npx nx run-many --target=build --all --parallel=3",
-    "dev": "npx nx run-many --target=dev --all --parallel=3",
-    "test": "npx nx run-many --target=test --all --parallel=3",
-    "lint": "npx nx run-many --target=lint --all --parallel=3",
-    "typecheck": "npx nx run-many --target=typecheck --all --parallel=3",
-    "clean": "npx nx reset && rm -rf node_modules packages/*/node_modules apps/*/node_modules",
+    "build": "nx run-many --target=build --all --parallel=3",
+    "dev": "nx run-many --target=dev --all --parallel=3",
+    "test": "nx run-many --target=test --all --parallel=3",
+    "lint": "nx run-many --target=lint --all --parallel=3",
+    "typecheck": "nx run-many --target=typecheck --all --parallel=3",
+    "clean": "nx reset && rm -rf node_modules packages/*/node_modules apps/*/node_modules",
     "stellar:check": "node -e \"console.log('🌟 Stellar UI System:', require('./packages/uikit/src/stellar').checkStellarHealth())\"",
-    "web": "npx nx run web:dev",
-    "web:build": "npx --no-install nx run web:build",
-    "uikit:dev": "npx nx run uikit:dev",
-    "uikit:build": "npx nx run uikit:build"
+    "web": "nx run web:dev",
+    "web:build": "./node_modules/.bin/nx run web:build",
+    "uikit:dev": "nx run uikit:dev",
+    "uikit:build": "nx run uikit:build"
   },
   "dependencies": {
     "nx": "^19.0.0",

@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  distDir: '.next',
   transpilePackages: [
     '@comet-swap/smart-router',
     '@cometswap/uikit',

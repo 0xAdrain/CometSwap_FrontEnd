@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
-const { withNx } = require('@nx/next/plugins/with-nx')
-
 const nextConfig = {
-  nx: {
-    svgr: false,
-  },
   reactStrictMode: true,
   swcMinify: true,
   transpilePackages: [
@@ -44,4 +39,4 @@ const nextConfig = {
   }
 }
 
-module.exports = withNx(nextConfig)
+module.exports = nextConfig

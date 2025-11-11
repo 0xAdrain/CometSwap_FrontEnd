@@ -31,6 +31,14 @@ const nextConfig = {
       'react-native$': 'react-native-web',
     }
     
+    // Handle monorepo packages properly
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+      os: false,
+    }
+    
     return config
   },
   env: {

@@ -5,7 +5,7 @@
   "description": "CometSwap Main Trading Interface",
   "scripts": {
     "build": "next build",
-    "web:build": "cd ../.. && npm run web:build",
+    "web:build": "next build",
     "dev": "next dev",
     "start": "next start",
     "typecheck": "tsc --noEmit",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@comet-swap/core-config": "file:../../packages/core-config",
     "@comet-swap/localization": "file:../../packages/localization",
+    "@comet-swap/smart-router": "file:../../packages/smart-router",
     "@cometswap/uikit": "file:../../packages/uikit",
     "@tanstack/react-query": "^5.56.0",
     "dayjs": "^1.11.10",

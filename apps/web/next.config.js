@@ -6,6 +6,7 @@ const nextConfig = {
     '@comet-swap/smart-router',
     '@cometswap/uikit',
     '@comet-swap/core-config',
+    '@comet-swap/hooks',
     '@comet-swap/localization'
   ],
   experimental: {

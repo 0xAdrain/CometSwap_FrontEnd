@@ -1,6 +1,0 @@
-{
-  "buildCommand": "bash -c 'cd $VERCEL_PROJECT_ROOT && npx nx run web:build'",
-  "installCommand": "npm install",
-  "outputDirectory": "apps/web/.next",
-  "framework": null
-}

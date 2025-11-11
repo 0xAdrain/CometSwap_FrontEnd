@@ -1,6 +1,8 @@
 {
   "name": "@comet-swap/utils",
   "version": "8.0.1",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "scripts": {
     "test": "vitest --run"
   },

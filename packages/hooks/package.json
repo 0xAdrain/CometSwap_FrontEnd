@@ -8,9 +8,12 @@
   "private": true,
   "scripts": {},
   "dependencies": {
+    "@comet-swap/core-config": "file:../core-config",
+    "@comet-swap/utils": "file:../utils",
     "dayjs": "^1.11.10",
     "js-cookie": "^3.0.1",
-    "next-themes": "^0.2.1"
+    "next-themes": "^0.2.1",
+    "tamagui": "^1.136.6"
   },
   "peerDependencies": {
     "react": "^18.2.0"

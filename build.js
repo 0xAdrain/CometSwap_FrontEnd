@@ -5,11 +5,8 @@ const path = require('path');
 try {
   console.log('🚀 Starting Nx build for web app...');
   
-  // Directly use local nx binary
-  const isWindows = process.platform === 'win32';
-  const nxBin = isWindows 
-    ? path.join(__dirname, 'node_modules', 'nx', 'bin', 'nx.js')
-    : path.join(__dirname, 'node_modules', '.bin', 'nx');
+  // Use nx/bin/nx.js which works on all platforms
+  const nxBin = path.join(__dirname, 'node_modules', 'nx', 'bin', 'nx.js');
   
   execSync(`node "${nxBin}" run web:build`, { 
     stdio: 'inherit',
